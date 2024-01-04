@@ -32,8 +32,9 @@ class Master implements MasterInterface
     /**
      * @param BuilderInterface $builder
      */
-    public function setBuilder(BuilderInterface $builder): void
+    public function setBuilder(BuilderInterface $builder): MasterInterface
     {
         $this->builder = $builder;
+        return $this;
     }
 }

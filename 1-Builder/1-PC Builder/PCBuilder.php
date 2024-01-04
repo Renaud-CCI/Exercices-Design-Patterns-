@@ -19,7 +19,7 @@ class PCBuilder implements BuilderInterface
    */
   public function setPart(AbstractPart $part): BuilderInterface
 {
-    $this->components[] = $part;
+    $this->components[$part::class] = $part;
     return $this;
 }
 
