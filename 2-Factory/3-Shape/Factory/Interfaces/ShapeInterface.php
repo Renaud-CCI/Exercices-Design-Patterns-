@@ -3,5 +3,5 @@
 namespace App\Factory\Interfaces;
 
 interface ShapeInterface {
-    /*TODO*/
+    public function draw();
 }
