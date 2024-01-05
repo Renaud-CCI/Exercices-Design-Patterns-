@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-  class FuelDisplay /*TODO*/{
+  class FuelDisplay implements ObserverInterface {
     /**
      * Handling a new Value
      *

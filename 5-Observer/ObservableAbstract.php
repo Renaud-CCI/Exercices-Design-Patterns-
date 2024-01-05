@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-abstract class ObservableAbstract{
+abstract class ObservableAbstract {
     private $observers = array();
 
     /**
@@ -9,8 +9,8 @@ abstract class ObservableAbstract{
      *
      * @param $observer
      */
-    final public function addObserver($observer){
-      /*TODO*/
+    final public function addObserver(ObserverInterface $observer){
+      $this->observers[] = $observer;
     }
 
     /**
@@ -18,8 +18,11 @@ abstract class ObservableAbstract{
      *
      * @param $observer
      */
-    final public function removeObserver($observer){
-      /*TODO*/
+    final public function removeObserver(ObserverInterface $observer){
+      $key = array_search($observer, $this->observers, true);
+      if ($key !== false) {
+          unset($this->observers[$key]);
+      }
     }
 
     /**
@@ -28,6 +31,8 @@ abstract class ObservableAbstract{
      * @param $value
      */
     final protected function notifyObserver($value){
-      /*TODO*/
-    }
+      foreach ($this->observers as $observer) {
+          $observer->newValue($value);
+      }
+  }
 }

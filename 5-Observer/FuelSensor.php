@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-class FuelSensor extends ObservableAbstract {
+class FuelSensor extends ObservableAbstract implements ObserverInterface {
     private $fuelLevel;
 
     /**
@@ -10,6 +10,16 @@ class FuelSensor extends ObservableAbstract {
      * @param $fuelLevel
      */
     public function setFuelLevel($fuelLevel){
-		/*TODO*/
+      $this->fuelLevel = $fuelLevel;
+      $this->notifyObserver($fuelLevel);
+    }
+
+    /**
+     * Handle the new value
+     *
+     * @param $value
+     */
+    public function newValue($value){
+      $this->setFuelLevel($value);
     }
 }

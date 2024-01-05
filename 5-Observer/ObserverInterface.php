@@ -8,5 +8,5 @@ interface ObserverInterface
      *
      * @param $value
      */
-
+    public function newValue($value);
 }

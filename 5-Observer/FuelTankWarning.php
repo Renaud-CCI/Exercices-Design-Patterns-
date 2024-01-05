@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-class FuelTankWarning  /*TODO*/{
+class FuelTankWarning  implements ObserverInterface {
 
     /**
      * It should be a private const(ant), but this is impossible in PHP 5.5
@@ -17,20 +17,24 @@ class FuelTankWarning  /*TODO*/{
      * @throws Exception
      */
     public function newValue($value) {
-         /*TODO Activer ou pas la Led en fonction du niveau de Fuel*/
+        if ($value <= self::warnLevel) {
+            $this->activateLED();
+        } else {
+            $this->deactivateLED();
+        }
     }
 
     /**
      * Activating the Fuel Gauge LED
      */
     private function activateLED() {
-        echo 'LED: on'."\n";
+        echo 'Fuel LED: on'."\n";
     }
 
     /**
      * Deactivating the Fuel Gauge LED
      */
     private function deactivateLED() {
-        echo 'LED: off'."\n";
+        echo 'Fuel LED: off'."\n";
     }
 }
