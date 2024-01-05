@@ -7,7 +7,9 @@
         "psr-4": {
             "App\\": "src/",
             "Tests\\": "tests/",
-            "Exceptions\\": "Exceptions/"
+            "Exceptions\\": "Exceptions/",
+            "ShopingCartFramework\\": "src/",
+            "MyCompanyShop\\": "src/"
         }
     }
 }
